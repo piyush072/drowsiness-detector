@@ -79,7 +79,7 @@ while 1:
 
     # font = cv2.FONT_HERSHEY_SIMPLEX
     # if abs(landmarks.part(62).y - landmarks.part(66).y) > 3:
-    #     cv2.putText(frame,"Muh band kar nai toh makkhi ghus jayega" ,(60,60), font,1,(0,244,0),2)
+    #     cv2.putText(frame,"Mouth Opened" ,(60,60), font,1,(0,244,0),2)
     # else:
     #     cv2.putText(frame,"Mouth Closed" ,(60,60), font,1,(0,244,0),2)
     
