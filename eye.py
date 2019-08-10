@@ -18,19 +18,8 @@ while 1:
     faces = detector(gray)
 
     for face in faces:
-        # x1,y1 = face.left(), face.top()
-        # x2, y2 = face.right(), face.bottom()
-        # # print(x1,x2,y1,y2)
-        # cv2.rectangle(frame,(x1,y1),(x2,y2),(255,0,0),2)
-
         landmarks = predictor(gray, face)
         font = cv2.FONT_HERSHEY_SIMPLEX
-        
-        # try:
-        #     if(landmarks):
-        #         cv2.putText(frame,"face detected" ,(60,60), font,1,(0,244,0),2)
-        # except:
-        #     print()
 
         right_eye = np.array([[]],np.int32) 
 
@@ -45,6 +34,8 @@ while 1:
             left_eye = np.append(left_eye,np.array([landmarks.part(i).x,landmarks.part(i).y]))
             if i==43 or i==46:
                 left_eye = np.append(left_eye, np.array([(landmarks.part(i).x+landmarks.part(i+1).x)//2,(landmarks.part(i).y+landmarks.part(i+1).y)//2]))
+
+        flag = 1
 
         blink_l = left_eye.reshape(-1,2)[6,1] - left_eye.reshape(-1,2)[3,1]
         blink_r = right_eye.reshape(-1,2)[6,1] - right_eye.reshape(-1,2)[3,1]
